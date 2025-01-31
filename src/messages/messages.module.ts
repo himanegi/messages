@@ -3,13 +3,13 @@ import { MessagesController } from './messages.controller';
 import { MessagesService } from './messages.service';
 import { MessagesRepository } from './messages.repository';
 import {
-  AuthGuard,
+  // AuthGuard,
   KeycloakConnectModule,
-  ResourceGuard,
-  RoleGuard,
+  // ResourceGuard,
+  // RoleGuard,
 } from 'nest-keycloak-connect';
-import { KeycloakConfigService } from 'src/config/keycloak-config.service';
-import { APP_GUARD } from '@nestjs/core';
+import { KeycloakConfigService } from '../keycloak-config.service';
+// import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -19,18 +19,18 @@ import { APP_GUARD } from '@nestjs/core';
   ],
   controllers: [MessagesController],
   providers: [
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: ResourceGuard,
-    },
-    {
-      provide: APP_GUARD,
-      useClass: RoleGuard,
-    },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: ResourceGuard,
+    // },
+    // {
+    //   provide: APP_GUARD,
+    //   useClass: RoleGuard,
+    // },
     MessagesService,
     MessagesRepository,
   ],
